@@ -1,18 +1,52 @@
 var app = new Vue({
     el: '#app',
     data: {
-        title: data.title,
-        image: data.image,
-        zones: data.zones,
-        currentQuestion: 0,
-        question: data.questions[0],
+        message:"",
+        messageCallBack:null,
+
+        iaSpeeking: false,
+        currentScreen: "intro",
+        introImage: data.introImage,
+        enigmes: data.enigmes,
+        currentEnigme:null,
+        enigmeTitle: null,
+        enigmeImage: null,
+        enigmeZones: null,
+        currentQuestion: null,
+        question: null,
         answer:null,
         answerMessage:"",
         nextTxt:"",
-        step:"questionImage",
+        step:null,
     },
+    mounted: function () {
+        this.checkLandScape();
+    },
+
     methods:{
 
+        okMessage : function () {
+            this.iaSpeeking = false;
+            if (this.messageCallBack){
+                let callBack = this.messageCallBack;
+                this.messageCallBack = null
+                callBack();
+            }
+        },
+
+        checkLandScape: function () {
+            if (window.innerWidth < window.innerHeight) {
+                this.messageCallBack = this.checkLandScape;
+                this.iaSpeech([data.landscapeMessage]);
+                // this.messageCallBack = null;
+            }
+        },
+        
+        iaSpeech : function (speech) {
+            this.iaSpeeking = true;
+            this.message = speech.shift();
+        },
+        
         nextStep : function () {
             this.answer = null;
             if (this.currentQuestion >= data.questions.length) {

@@ -12,12 +12,19 @@
 
 <body>
     <div id="app" class="app-container">
-        <h2>{{ title }}</h2>
-        <div class="enigme-container">
+        
+        <div class="screen intro-container" v-if="currentScreen === 'intro'">
+            <div class="img-map">
+                <img class="img100" :src="introImage"/>
+                <div class="click-zone button-text button-intro">Jouer</div>
+            </div>
+        </div>
+        <div class="enigme-container" v-if="currentEnigme">
+            <h2>{{ title }}</h2>
 
             <div v-if="!answer && step === 'questionImage'">
                 <p> {{ question.questionImage }} </p>
-                <div class="img-enigme-container">
+                <div class="img-map">
                     <img :src="image"/>
                     <div v-for="(zone, zoneName) in zones" class="click-zone" :style="{
                         height: zone.height,
@@ -46,6 +53,15 @@
             </div>
 
         </div>
+        
+        <div class="message-screen" v-if="iaSpeeking">
+            <div  class="message-box">
+                {{ message }}
+                <div class="button-text" v-on:click="okMessage">OK</div>
+            </div>
+            <div class="white-triangle"><div class="green-triangle"></div></div>
+        </div>
+        
     </div>
 </body>
 <script type="text/javascript" src="data.js"></script>

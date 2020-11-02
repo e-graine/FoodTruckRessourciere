@@ -1,14 +1,29 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
+    margin:0;
+    overflow: hidden;
+    /* display:flex;
+    align-items: center;
+    justify-content: center; */
+} 
 
 h2 {
     border-bottom: 1px solid black;
 }
 
-img {
+.img100 {
     width: 100%;
-    max-width: 500px;
+    height: 100%;
+}
+
+.img-map{
+    position: relative;
+
+}
+
+.click-zone {
+    position: absolute;
+    cursor: pointer;
 }
 
 .pointer {
@@ -17,17 +32,19 @@ img {
 
 .app-container {
     max-width: 500px;
+    max-height: 500px;
     margin: auto;
-}
-
-.img-enigme-container{
-    position: relative;
+    width: 100vw;
+    height: 100vh;
 
 }
 
-.click-zone {
-    position: absolute;
-    cursor: pointer;
+.screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grid-2-column {
@@ -45,3 +62,61 @@ img {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.button-intro{
+    top:50%;
+    left:50%;
+}
+
+.message-screen {
+    /* filter: blur(2px); */
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    /* background-color: black; */
+    /* opacity: 0.5; */
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;
+    z-index: 100;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.message-box {
+    /* opacity: 1; */
+    background-color: #65ae42;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid white;
+    color: white;
+    /* position : absolute; */
+    max-width: 400px;
+    /* margin-left: 2%; */
+    width: 80%;
+    /* top:30vh;
+    z-index: 1000; */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.white-triangle {
+    border-right: 20px solid rgba(255, 255, 255, 0);;
+    border-top: 20px solid white;
+    position: relative;
+    bottom:0;
+  }
+
+.green-triangle {
+    border-right: 18px solid rgba(255, 255, 255, 0);;
+    border-top: 18px solid #65ae42;
+    position: absolute;
+    top:-22px;
+    left:2px;
+  }
