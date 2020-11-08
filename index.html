@@ -16,55 +16,58 @@
         <div class="screen intro-container" v-if="currentScreen === 'intro'">
             <div class="img-map">
                 <img class="img100" :src="introImage"/>
-                <div class="click-zone button-text button-intro">Jouer</div>
+                <div class="click-zone button-text button-intro" v-on:click="letsPlay" >Jouer</div>
+            </div>
+        </div>
+        <div class="screen board-container" v-if="currentScreen === 'board'">
+            <div 
+                v-for="(enigme) in enigmes" 
+                class="button-text" v-on:click="displayEnigme(enigme)"
+                v-if="enigme.questions[enigme.currentQuestion]"
+            >
+                {{ enigme.title }}
+            </div>
+
+            <div 
+                v-for="(enigme) in enigmes" 
+                v-if="!enigme.questions[enigme.currentQuestion]"
+            >
+                {{ enigme.title }} : fini !
             </div>
         </div>
         <div class="enigme-container" v-if="currentEnigme">
-            <h2>{{ title }}</h2>
-
-            <div v-if="!answer && step === 'questionImage'">
-                <p> {{ question.questionImage }} </p>
-                <div class="img-map">
-                    <img :src="image"/>
-                    <div v-for="(zone, zoneName) in zones" class="click-zone" :style="{
-                        height: zone.height,
-                        width: zone.width,
-                        top: zone.top,
-                        left: zone.left,
-                        border: zone.border,
-                    }"
-                    v-on:click="resolve(zoneName)"></div>
-                </div>
+            <div class="img-map">
+                <img class="img100" :src="currentEnigme.image"/>
+                <div v-for="(zone, zoneName) in currentEnigme.zones" class="click-zone" :style="{
+                    height: zone.height,
+                    width: zone.width,
+                    top: zone.top,
+                    left: zone.left,
+                    border: zone.border,
+                }"
+                v-on:click="resolve(zoneName)"></div>
             </div>
-
-            <div v-if="!answer && step === 'questionText'">
-                <p> {{ question.questionText }} </p>
-                <div class="grid-2-column">
-                    <div v-for="proposition in question.propositions"v-on:click="resolve(proposition)" class="button-text">{{ proposition }}
-                    </div>
-                </div>
-            </div>
-
-            <div v-if="answer">
-                <p>{{ answerMessage }}</p>
-                <div class="pointer" v-on:click="nextStep()">
-                    {{ nextTxt }}
-                </div>
-            </div>
-
         </div>
         
         <div class="message-screen" v-if="iaSpeeking">
             <div  class="message-box">
                 {{ message }}
-                <div class="button-text" v-on:click="okMessage">OK</div>
+                <div v-if="qcmMessage">
+                    <p> {{ qcmMessage.question }} </p>
+                    <div class="grid-2-column">
+                        <div v-for="proposition in qcmMessage.propositions" v-on:click="resolve(proposition)" class="button-text">{{ proposition }}
+                        </div>
+                    </div>
+                </div>
+                <div class="next-arry" v-if="waitingSpeech" v-on:click="nextMessage">&#10140;</div>
+                <div class="button-text" v-if="!qcmMessage" v-on:click="okMessage">OK</div>
             </div>
             <div class="white-triangle"><div class="green-triangle"></div></div>
         </div>
-        
     </div>
 </body>
 <script type="text/javascript" src="data.js"></script>
 <script type="text/javascript" src="index.js"></script>
+
 
 </html>

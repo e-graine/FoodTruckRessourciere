@@ -2,31 +2,34 @@ var app = new Vue({
     el: '#app',
     data: {
         message:"",
+        waitingSpeech:null,
         messageCallBack:null,
-
         iaSpeeking: false,
+        qcmMessage:null,
         currentScreen: "intro",
         introImage: data.introImage,
         enigmes: data.enigmes,
         currentEnigme:null,
-        enigmeTitle: null,
-        enigmeImage: null,
-        enigmeZones: null,
-        currentQuestion: null,
-        question: null,
-        answer:null,
-        answerMessage:"",
-        nextTxt:"",
-        step:null,
+        currentQuestion: 0,
     },
     mounted: function () {
         this.checkLandScape();
+        for (enigme of this.enigmes){
+            enigme.currentQuestion = 0;
+        }
     },
 
     methods:{
 
+        iaSpeech : function (speech) {
+            this.message = speech.shift();
+            this.waitingSpeech = speech.length > 0 ? speech : null
+            this.iaSpeeking = true;
+        },
+
         okMessage : function () {
             this.iaSpeeking = false;
+
             if (this.messageCallBack){
                 let callBack = this.messageCallBack;
                 this.messageCallBack = null
@@ -34,43 +37,70 @@ var app = new Vue({
             }
         },
 
+        nextMessage : function () {
+            this.iaSpeech(this.waitingSpeech);
+        },
+
         checkLandScape: function () {
             if (window.innerWidth < window.innerHeight) {
-                this.messageCallBack = this.checkLandScape;
                 this.iaSpeech([data.landscapeMessage]);
-                // this.messageCallBack = null;
+                return false;
+            }
+            return true;
+        },
+
+        letsPlay : function () {
+            if (this.checkLandScape()) {
+                this.currentScreen = 'board';
             }
         },
-        
-        iaSpeech : function (speech) {
-            this.iaSpeeking = true;
-            this.message = speech.shift();
+
+        chooseEnigme : function (enigme) {
+            this.currentScreen = "enigme";
+            this.currentEnigme = enigme;
+            this.displayEnigme();
+        },
+
+        displayEnigme : function (enigme) {
+            this.currentEnigme = enigme;
+            this.iaSpeech([enigme.welcomeMessage, enigme.questions[enigme.currentQuestion].questionImage])
+            this.currentScreen = "enigme";
         },
         
         nextStep : function () {
-            this.answer = null;
             if (this.currentQuestion >= data.questions.length) {
                 this.currentQuestion = 0;
             }
-            this.question = data.questions[this.currentQuestion];
         },
 
         resolve : function (answer) {
-            this.answer = answer;
-            this.nextTxt = "SUIVANT >>";
-            this.answerMessage = "Bien joué !";
-            if (answer === this.question.answerImage){
-                return this.step = "questionText"
+            const question = this.currentEnigme.questions[this.currentEnigme.currentQuestion];
+            let speech = ["Mauvaise Réponse :/"];
+
+            if (answer === question.answerImage){
+                this.qcmMessage = question.qcm;
+                speech = ["Bien joué !"];
             }
-            if (answer === this.question.answerText){
-                this.currentQuestion ++;
-                this.answerMessage += this.question.correction;
-                return this.step = "questionImage";
+
+            if (answer === question.qcm.answer){
+                this.qcmMessage = null;
+                speech = ["Bien joué !", question.qcm.correction];
+                this.endEnigme();
             }
-            /////////// si aucune condition de victoir n'est validée
-            this.answerMessage = "Mauvaise réponse"
-            if (this.zones[answer]) this.answerMessage = this.zones[answer].wrongText;
-            this.nextTxt = "ESSAYES ENCORE >>";
+            this.iaSpeech(speech);
         },
+
+        endEnigme : function (){
+            this.messageCallBack = () => { this.currentScreen = "board"};
+            let e = this.currentEnigme;
+            e.currentQuestion ++;
+            const nextQuestion = e.questions[e.currentQuestion];
+            if (nextQuestion){
+                this.messageCallBack = () => {
+                    this.iaSpeech(["Question suivante : " + nextQuestion.questionImage]);
+                }
+            }
+
+        }
     },
 });
