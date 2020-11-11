@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
+    <!-- <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes"> -->
     <link rel="manifest" href="/manifest.json">
     <!-- <script src="https://vuejs.org/js/vue.min.js"></script> -->
     <script src="https://vuejs.org/js/vue.js"></script>
@@ -27,7 +27,7 @@
         <div class="screen intro-container" v-if="currentScreen === 'intro'">
             <div class="img-map">
                 <img class="img100" :src="introImage"/>
-                <div class="click-zone button-text button-intro" v-on:click="letsPlay" >Jouer Jouer</div>
+                <div class="click-zone button-text button-intro" v-on:click="letsPlay" >Jouer</div>
             </div>
         </div>
         <div class="screen board-container" v-if="currentScreen === 'board'">
