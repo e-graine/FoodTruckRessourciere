@@ -104,7 +104,6 @@ var app = new Vue({
         },
 
         endEnigme : function (){
-            this.messageCallBack = () => { this.currentScreen = "board"};
             let e = this.currentEnigme;
             e.currentQuestion ++;
             const nextQuestion = e.questions[e.currentQuestion];
@@ -113,7 +112,10 @@ var app = new Vue({
                     this.iaSpeech(["Question suivante : " + nextQuestion.questionImage]);
                 }
             }
-
+            else {
+                this.messageCallBack = () => { this.currentScreen = "board"};
+                this.currentEnigme = null;
+            }
         }
     },
 });
