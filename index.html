@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="index.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="manifest" href="/manifest.json">
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+    <link rel="manifest" href="/manifest.webmanifest">
     <!-- <script src="https://vuejs.org/js/vue.min.js"></script> -->
     <script src="https://vuejs.org/js/vue.js"></script>
     <title>enigme0</title>
@@ -27,7 +28,7 @@
         <div class="screen intro-container" v-if="currentScreen === 'intro'">
             <div class="img-map">
                 <img class="img100" :src="introImage"/>
-                <div class="click-zone button-text button-intro" v-on:click="letsPlay" onclick="fsRequest()" >JouerJouer</div>
+                <div class="click-zone button-text button-intro" v-on:click="letsPlay" onclick="fsRequest()" >Jouer d</div>
             </div>
         </div>
         <div class="screen board-container" v-if="currentScreen === 'board'">
