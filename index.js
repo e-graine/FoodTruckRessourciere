@@ -50,7 +50,6 @@ var app = new Vue({
         },
 
         letsPlay : function () {
-            alert("yolo");
             // var appli = document.getElementById('app').requestFullscreen();
             // console.log (document.getElementById('app'))
             // if (appli.requestFullscreen) {
