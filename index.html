@@ -27,7 +27,7 @@
         <div class="screen intro-container" v-if="currentScreen === 'intro'">
             <div class="img-map">
                 <img class="img100" :src="introImage"/>
-                <div class="click-zone button-text button-intro" v-on:click="letsPlay" onclick="fsRequest()" >Jouer Jouer</div>
+                <div class="click-zone button-text button-intro" v-on:click="letsPlay" onclick="fsRequest()" >Jouer</div>
             </div>
         </div>
         <div class="screen board-container" v-if="currentScreen === 'board'">
@@ -81,7 +81,7 @@
 <script type="text/javascript" src="index.js"></script>
 <script>
     function fsRequest (){
-        window.scrollTo(0,1);
+        // window.scrollTo(0,1);
 
             var appli = document.getElementById('app').requestFullscreen();
             console.log (document.getElementById('app'))
