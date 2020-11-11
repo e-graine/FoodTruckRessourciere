@@ -50,6 +50,19 @@ var app = new Vue({
         },
 
         letsPlay : function () {
+            var appli = document.getElementById('app').requestFullscreen();
+            // console.log (document.getElementById('app'))
+            if (appli.requestFullscreen) {
+                appli.requestFullscreen();
+            } else if (appli.webkitRequestFullscreen) {
+                appli.webkitRequestFullscreen();
+            } else if (appli.mozRequestFullScreen) {
+                appli.mozRequestFullScreen();
+            } else if (appli.msRequestFullscreen) {
+                appli.msRequestFullscreen();
+            }
+
+
             if (this.checkLandScape()) {
                 this.currentScreen = 'board';
             }
