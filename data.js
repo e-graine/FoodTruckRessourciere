@@ -1,6 +1,7 @@
 data = {
     introImage : "img/intro.jpg",
-    test:"test",
+    timesUp:10*60,
+    timesMalus:60,
     landscapeMessage: "Veuillez passer en mode paysage pour jouer",
     enigmes : [{
         title: "Itinéraire d'un burger",

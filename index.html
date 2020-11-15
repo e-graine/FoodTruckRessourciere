@@ -47,7 +47,7 @@
                 {{ enigme.title }} : fini !
             </div>
         </div>
-        <div class="enigme-container" v-if="currentEnigme">
+        <div class="enigme-container" v-if="currentScreen === 'enigme'">
             <div class="img-map">
                 <img class="img100" :src="currentEnigme.image"/>
                 <div v-for="(zone, zoneName) in currentEnigme.zones" class="click-zone" :style="{
@@ -59,6 +59,10 @@
                 }"
                 v-on:click="resolve(zoneName)"></div>
             </div>
+        </div>
+        <div class="screen endGame-container" v-if="currentScreen === 'endGame'">
+            You end this game in {{ endTime }} <br>
+            This worth {{ score }} points !
         </div>
         
         <div class="message-screen" v-if="iaSpeeking">
@@ -76,6 +80,15 @@
             </div>
             <div class="white-triangle"><div class="green-triangle"></div></div>
         </div>
+        <timer class="timer" ref="timer" inline-template 
+        v-show="currentScreen != 'intro' && currentScreen != 'endGame' ">
+            <div>
+                <div class="progress-bar">
+                    <div class="progress" :style="{ width: timeBarWidth }"></div>
+                </div>
+                <div class="progress-label">Time's up</div>
+            </div>
+        </timer>
     </div>
 </body>
 <script type="text/javascript" src="data.js"></script>
@@ -84,17 +97,16 @@
     function fsRequest (){
         // window.scrollTo(0,1);
 
-            var appli = document.getElementById('app').requestFullscreen();
-            console.log (document.getElementById('app'))
-            if (appli.requestFullscreen) {
-                appli.requestFullscreen();
-            } else if (appli.webkitRequestFullscreen) {
-                appli.webkitRequestFullscreen();
-            } else if (appli.mozRequestFullScreen) {
-                appli.mozRequestFullScreen();
-            } else if (appli.msRequestFullscreen) {
-                appli.msRequestFullscreen();
-            }
+            // var appli = document.getElementById('app').requestFullscreen();
+            // if (appli.requestFullscreen) {
+            //     appli.requestFullscreen();
+            // } else if (appli.webkitRequestFullscreen) {
+            //     appli.webkitRequestFullscreen();
+            // } else if (appli.mozRequestFullScreen) {
+            //     appli.mozRequestFullScreen();
+            // } else if (appli.msRequestFullscreen) {
+            //     appli.msRequestFullscreen();
+            // }
     }
 </script>
 
