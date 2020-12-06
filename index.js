@@ -2,6 +2,7 @@ var timer =  {
     data: function () {
       return {
           seconds: 0,
+          stopTime: false,
       }
     },
     computed:{
@@ -11,8 +12,9 @@ var timer =  {
     },
     methods:{
       tic: function(){
-          this.seconds ++;
-          this.seconds > data.timesUp ? this.$parent.endGame() : setTimeout(() => {this.tic()}, 1000);
+        if (!this.stopTime) this.seconds ++;
+        if (this.seconds > data.timesUp) return this.$parent.endGame();
+        setTimeout(() => {this.tic()}, 1000);
       },
       timeForward: function (seconds) {
           this.seconds += seconds;
@@ -35,6 +37,7 @@ var app = new Vue({
         iaSpeeking: false,
         qcmMessage:null,
         currentScreen: "intro",
+        historic:["intro"],
         introImage: data.introImage,
         enigmes: data.enigmes,
         currentEnigme:null,
@@ -42,6 +45,9 @@ var app = new Vue({
         timesMalus:0,
         endTime:0,
         score:0,
+        currentDoc:0,
+        docs:[],
+        docsCall:false,
     },
     mounted: function () {
         this.checkLandScape();
@@ -54,6 +60,15 @@ var app = new Vue({
         // this.$emit('myEvent')
         // timer.options.methods.timeForward();
         
+    },
+
+    watch: {
+        currentScreen: function(screen) {
+            this.historic.push(screen);
+        },
+        docs: function() {
+            this.docsCall = true;
+        },
     },
 
     methods:{
@@ -103,6 +118,7 @@ var app = new Vue({
             this.currentEnigme = enigme;
             this.iaSpeech([enigme.welcomeMessage, enigme.questions[enigme.currentQuestion].questionImage])
             this.currentScreen = "enigme";
+            if(enigme.doc) this.docs.push(doc[enigme.doc]);
         },
         
         // nextStep : function () {
@@ -155,6 +171,30 @@ var app = new Vue({
             this.score = Math.round(100 - ((1/data.timesUp)*100)*seconds);
             if (this.score <0) this.score = 0;
             this.currentScreen = "endGame";
-        }
+        },
+
+        docDisplay: function (){
+            if (!this.historic.includes("doc")){
+                this.iaSpeech(["La lecture de document arrête le temps"]);
+            }
+            this.docsCall = false;
+            this.$refs.timer.stopTime = true;
+            this.currentDoc = 0;
+            // this.doc= doc[this.currentDoc];
+            this.currentScreen = "doc";
+        },
+
+        forwardDoc: function (){
+            this.currentDoc ++;
+        },
+
+        backDoc: function (){
+            this.currentDoc --;
+        },
+
+        docExit: function (){
+            this.currentScreen = this.historic[this.historic.length-2];
+            this.$refs.timer.stopTime = false;
+        },
     },
 });

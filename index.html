@@ -81,7 +81,7 @@
             <div class="white-triangle"><div class="green-triangle"></div></div>
         </div>
         <timer class="timer" ref="timer" inline-template 
-        v-show="currentScreen != 'intro' && currentScreen != 'endGame' ">
+        v-show="currentScreen != 'intro' && currentScreen != 'endGame' && currentScreen != 'doc' ">
             <div>
                 <div class="progress-bar">
                     <div class="progress" :style="{ width: timeBarWidth }"></div>
@@ -89,9 +89,23 @@
                 <div class="progress-label">Time's up</div>
             </div>
         </timer>
+        <div class='button-doc' :class="{ 'pulse':docsCall }" v-on:click="docDisplay" v-if="currentScreen !== 'doc' && currentScreen != 'intro' && docs.length !== 0 "></div>
+        <div class="screen doc-container" v-if="currentScreen === 'doc'">
+            <div class='button-doc' v-on:click="docExit"></div>
+            <div class="doc-content">
+                <h2>{{ docs[currentDoc].title }}</h2>
+                <div><img :src="docs[currentDoc].image" alt=""></div>
+                <p>{{ docs[currentDoc].text }}</p>
+            </div>
+            <div class="doc-changer">
+                <div v-on:click="backDoc" :class="{ 'button-disabled':currentDoc === 0 }">&#8249;</div>
+                <div v-on:click="forwardDoc" :class="{ 'button-disabled':currentDoc == docs.length-1 }">&#8250;</div>
+            </div>
+        </div>
     </div>
 </body>
 <script type="text/javascript" src="data.js"></script>
+<script type="text/javascript" src="doc.js"></script>
 <script type="text/javascript" src="index.js"></script>
 <script>
     function fsRequest (){

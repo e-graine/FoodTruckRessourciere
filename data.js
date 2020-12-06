@@ -6,6 +6,7 @@ data = {
     enigmes : [{
         title: "Itinéraire d'un burger",
         welcomeMessage: "Bienvenue dans l'itinéraire d'un burger !",
+        doc:"doc1",
         image: "img/enigmeTest.jpg",
         zones : {
             bananes : {
@@ -94,6 +95,7 @@ data = {
     {
         title: "Itinéraire d'un burger 2",
         welcomeMessage: "Bienvenue dans l'itinéraire d'un burger !",
+        doc:"doc2",
         image: "img/enigmeTest.jpg",
         zones : {
             bananes : {

@@ -12,7 +12,7 @@ body {
 } 
 
 h2 {
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
 }
 
 .img100 {
@@ -158,6 +158,53 @@ h2 {
     box-shadow: 0px 0px 2px white, 0px 0px 4px white, 0px 0px 6px white,
     0px 0px 8px white, 0px 0px 10px white, 0px 0px 10px #04bfff;
   }
+
+  .button-doc {
+    position: absolute;
+    bottom:90%;
+    left:10%;
+    z-index : 10;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    cursor: pointer;
+  }
+
+
+  .doc-content {
+    overflow: auto;
+    margin: auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .doc-changer {
+    display:flex;
+    font-size: 200px;
+    cursor: pointer;
+  }
+
+  .button-disabled {
+    pointer-events:none;
+    opacity: 0.2;
+  }
+
+  .pulse {
+    animation: radial-pulse 1s infinite;
+  }
+  
+  @keyframes radial-pulse {
+    0% {
+      box-shadow: 0 0 0 0vw black;
+    }
+  
+    100% {
+      box-shadow: 0 0 0 2vw rgba(255, 100, 100, 0);
+    }
+  }
+
 
   @media screen and (max-width: 1280px) {
     .app-container {
