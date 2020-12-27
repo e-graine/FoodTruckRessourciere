@@ -48,12 +48,14 @@ var app = new Vue({
         currentDoc:0,
         docs:[],
         docsCall:false,
+        appSize:null,
     },
     mounted: function () {
-        this.checkLandScape();
+        this.appSize = this.checkSize();
         for (enigme of this.enigmes){
             enigme.currentQuestion = 0;
         }
+
     },
     updated: function () {
         // console.log("yolo");
@@ -93,16 +95,19 @@ var app = new Vue({
             this.iaSpeech(this.waitingSpeech);
         },
 
-        checkLandScape: function () {
+        checkSize: function () {
             if (window.innerWidth < window.innerHeight) {
                 this.iaSpeech([data.landscapeMessage]);
-                return false;
+                return null;
             }
-            return true;
+            const appHeight = parseInt(window.innerHeight * 0.9);
+            const appWidth =  parseInt((appHeight * 5) / 3);
+            const styleSize = {'max-height' : appHeight  + 'px', 'max-width' : appWidth + 'px'};
+            return styleSize;
         },
 
         letsPlay : function () {
-            if (this.checkLandScape()) {
+            if (this.checkSize()) {
                 this.currentScreen = 'board';
                 this.$refs.timer.tic();
             }

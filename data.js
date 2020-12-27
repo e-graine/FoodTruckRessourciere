@@ -1,5 +1,5 @@
 data = {
-    introImage : "img/intro.jpg",
+    introImage : "img/truck.svg",
     timesUp:10*60,
     timesMalus:60,
     landscapeMessage: "Veuillez passer en mode paysage pour jouer",

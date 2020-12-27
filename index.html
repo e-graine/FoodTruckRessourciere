@@ -9,21 +9,14 @@
     <meta name="mobile-web-app-capable" content="yes">
     <!-- <link rel="manifest" href="/manifest.json"> -->
     <link rel="manifest" href="/manifest.webmanifest">
-    <!-- <script src="https://vuejs.org/js/vue.min.js"></script> -->
-    <script src="https://vuejs.org/js/vue.js"></script>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <!-- <script type="text/javascript" src="vue.js"></script> -->
     <title>enigme0</title>
 </head>
 
 <body>
-    <!-- <iframe src="https://en.wikipedia.org/wiki/HTML_element#Frames"
-    frameborder="0" 
-    marginheight="0" 
-    marginwidth="0" 
-    width="100%" 
-    height="100%" 
-    scrolling="auto"> 
-</iframe>  -->
-    <div id="app" class="app-container">
+    <div id="app" class="app-container" :style="appSize">
         
         <div class="screen intro-container" v-if="currentScreen === 'intro'">
             <div class="img-map">
@@ -47,7 +40,7 @@
                 {{ enigme.title }} : fini !
             </div>
         </div>
-        <div class="enigme-container" v-if="currentScreen === 'enigme'">
+        <div class="screen enigme-container" v-if="currentScreen === 'enigme'">
             <div class="img-map">
                 <img class="img100" :src="currentEnigme.image"/>
                 <div v-for="(zone, zoneName) in currentEnigme.zones" class="click-zone" :style="{
@@ -80,21 +73,20 @@
             </div>
             <div class="white-triangle"><div class="green-triangle"></div></div>
         </div>
-        <timer class="timer" ref="timer" inline-template 
-        v-show="currentScreen != 'intro' && currentScreen != 'endGame' && currentScreen != 'doc' ">
-            <div>
+        <timer ref="timer" inline-template v-show="currentScreen === 'board' ">
+            <div class="timer" >
                 <div class="progress-bar">
                     <div class="progress" :style="{ width: timeBarWidth }"></div>
                 </div>
                 <div class="progress-label">Time's up</div>
             </div>
         </timer>
-        <div class='button-doc' :class="{ 'pulse':docsCall }" v-on:click="docDisplay" v-if="currentScreen !== 'doc' && currentScreen != 'intro' && docs.length !== 0 "></div>
+        <div class='button-doc' :class="{ 'pulse':docsCall }" v-on:click="docDisplay" v-if="currentScreen !== 'doc' && currentScreen != 'intro' && docs.length !== 0 ">D</div>
         <div class="screen doc-container" v-if="currentScreen === 'doc'">
             <div class='button-doc' v-on:click="docExit"></div>
             <div class="doc-content">
                 <h2>{{ docs[currentDoc].title }}</h2>
-                <div><img :src="docs[currentDoc].image" alt=""></div>
+                <div><img :src="docs[currentDoc].image" alt="" class="img100"></div>
                 <p>{{ docs[currentDoc].text }}</p>
             </div>
             <div class="doc-changer">
