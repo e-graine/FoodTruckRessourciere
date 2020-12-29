@@ -107,7 +107,8 @@ var app = new Vue({
         },
 
         letsPlay : function () {
-            if (this.checkSize()) {
+            this.appSize = this.checkSize();
+            if (this.appSize) {
                 this.currentScreen = 'board';
                 this.$refs.timer.tic();
             }
