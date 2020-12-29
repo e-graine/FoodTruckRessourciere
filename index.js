@@ -55,6 +55,7 @@ var app = new Vue({
         for (enigme of this.enigmes){
             enigme.currentQuestion = 0;
         }
+        this.decryptScore('poi');
 
     },
     updated: function () {
@@ -96,11 +97,6 @@ var app = new Vue({
         },
 
         checkSize: function () {
-            console.log ("mozInnerScreenY", window.mozInnerScreenY);
-            console.log ("outerHeight", window.outerHeight);
-            console.log ("screenY", window.screen);
-            console.log ("innerHeight", window.innerHeight);
-            console.log ("visualViewport ", window.visualViewport);
             if (window.innerWidth < window.innerHeight) {
                 this.iaSpeech([data.landscapeMessage]);
                 return null;
@@ -182,6 +178,9 @@ var app = new Vue({
             this.score = Math.round(100 - ((1/data.timesUp)*100)*seconds);
             if (this.score <0) this.score = 0;
             this.currentScreen = "endGame";
+            // this.encryptScore(this.score);
+            // this.decryptScore('poi');
+            // console.log (this.encryptScore(this.score));
         },
 
         docDisplay: function (){
@@ -207,5 +206,31 @@ var app = new Vue({
             this.currentScreen = this.historic[this.historic.length-2];
             this.$refs.timer.stopTime = false;
         },
+
+        encryptScore(score) {
+            var request = new XMLHttpRequest();
+            request.open(
+                "GET",
+                "https://ycallier-api.herokuapp.com/encryptScore/" + score,
+                true
+            );
+            request.onload = function () {
+                console.log(request.response);
+            };
+            request.send();
+        },
+
+        decryptScore(score) {
+            var request = new XMLHttpRequest();
+            request.open(
+                "GET",
+                "https://ycallier-api.herokuapp.com/decryptScore/" + score,
+                true
+            );
+            request.onload = function () {
+                console.log(request.response);
+            };
+            request.send();
+        }
     },
 });
