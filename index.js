@@ -96,8 +96,6 @@ var app = new Vue({
         },
 
         checkSize: function () {
-            console.log (window.innerHeight);
-            console.log (window.height);
             if (window.innerWidth < window.innerHeight) {
                 this.iaSpeech([data.landscapeMessage]);
                 return null;
