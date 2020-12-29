@@ -9,14 +9,15 @@
     <meta name="mobile-web-app-capable" content="yes">
     <!-- <link rel="manifest" href="/manifest.json"> -->
     <link rel="manifest" href="/manifest.json">
-    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <!-- <script src="https://vuejs.org/js/vue.min.js"></script> -->
     <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
-    <!-- <script type="text/javascript" src="vue.js"></script> -->
+    <script type="text/javascript" src="vue.js"></script>
     <title>enigme0</title>
 </head>
 
 <body>
-    <div id="app" class="app-container" :style="appSize">
+    <div id="app" class="app-container">
+    <!-- <div id="app" class="app-container" :style="appSize"> -->
         
         <div class="screen intro-container" v-if="currentScreen === 'intro'">
             <div class="img-map">
