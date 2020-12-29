@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="index.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -16,8 +17,8 @@
 </head>
 
 <body>
-    <div id="app" class="app-container">
-    <!-- <div id="app" class="app-container" :style="appSize"> -->
+    <!-- <div id="app" class="app-container"> -->
+    <div id="app" class="app-container" :style="appSize">
         
         <div class="screen intro-container" v-if="currentScreen === 'intro'">
             <div class="img-map">

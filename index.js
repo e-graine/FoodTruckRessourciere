@@ -98,14 +98,14 @@ var app = new Vue({
         checkSize: function () {
             console.log ("mozInnerScreenY", window.mozInnerScreenY);
             console.log ("outerHeight", window.outerHeight);
-            console.log ("screenY", window.screenY);
+            console.log ("screenY", window.screen);
             console.log ("innerHeight", window.innerHeight);
             console.log ("visualViewport ", window.visualViewport);
             if (window.innerWidth < window.innerHeight) {
                 this.iaSpeech([data.landscapeMessage]);
                 return null;
             }
-            const appHeight = parseInt(window.innerHeight * 0.9);
+            const appHeight = parseInt((window.innerHeight - window.screenY));
             const appWidth =  parseInt((appHeight * 5) / 3);
             const styleSize = {'max-height' : appHeight  + 'px', 'max-width' : appWidth + 'px'};
             return styleSize;
