@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <!-- <link rel="manifest" href="/manifest.json"> -->
-    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="manifest" href="/manifest.json">
     <script src="https://vuejs.org/js/vue.min.js"></script>
     <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
     <!-- <script type="text/javascript" src="vue.js"></script> -->
@@ -83,7 +83,7 @@
         </timer>
         <div class='button-doc' :class="{ 'pulse':docsCall }" v-on:click="docDisplay" v-if="currentScreen !== 'doc' && currentScreen != 'intro' && docs.length !== 0 ">D</div>
         <div class="screen doc-container" v-if="currentScreen === 'doc'">
-            <div class='button-doc' v-on:click="docExit"></div>
+            <div class='button-doc' v-on:click="docExit">X</div>
             <div class="doc-content">
                 <h2>{{ docs[currentDoc].title }}</h2>
                 <div><img :src="docs[currentDoc].image" alt="" class="img100"></div>

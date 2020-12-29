@@ -1,7 +1,7 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin:0;
-    overflow: hidden;
+    /* overflow: hidden; */
     display:flex;
     align-items: center;
     justify-content: center;
@@ -167,9 +167,9 @@ h2 {
   }
 
   .button-doc {
-    position: relative;
-    top:-100%;
-    left:0%;
+    position: absolute;
+    top:50px;
+    left:50px;
     z-index : 10;
     width: 30px;
     height: 30px;
@@ -184,6 +184,7 @@ h2 {
 
   .doc-content {
     overflow: auto;
+    -webkit-overflow-scrolling:touch;
     margin: auto;
     display:flex;
     flex-direction: column;
