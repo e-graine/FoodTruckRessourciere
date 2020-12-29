@@ -105,7 +105,7 @@ var app = new Vue({
                 this.iaSpeech([data.landscapeMessage]);
                 return null;
             }
-            const appHeight = parseInt((window.innerHeight - window.screenY));
+            const appHeight = parseInt((window.innerHeight - window.screenY)*0.9);
             const appWidth =  parseInt((appHeight * 5) / 3);
             const styleSize = {'max-height' : appHeight  + 'px', 'max-width' : appWidth + 'px'};
             return styleSize;
