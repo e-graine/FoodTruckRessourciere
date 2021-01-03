@@ -248,8 +248,24 @@ var app = new Vue({
             // test.setAttribute('type', 'text') ;
             // console.log(test);
             // test.select();
-            if (navigator.clipboard.writeText(this.scoreLink)) this.iaSpeech(["Lien copié"])
-            else this.iaSpeech(["Copie ce lien pour envoyer ton score à la terre entière : ", this.scoreLink])
+            // if (navigator.clipboard.writeText(this.scoreLink)) this.iaSpeech(["Lien copié"])
+            // else this.iaSpeech(["Copie ce lien pour envoyer ton score à la terre entière : ", this.scoreLink]);
+            // try {
+            //     navigator.clipboard.writeText(this.scoreLink);
+            //     this.iaSpeech(["Lien copié"]);
+            //   } catch (err) {
+            //     this.iaSpeech(["Copie ce lien pour envoyer ton score à la terre entière : ", this.scoreLink]);
+            //   }
+            alert ("salut");
+              if (navigator){
+                  alert ("ça pass");
+                navigator.clipboard.writeText(this.scoreLink);
+                this.iaSpeech(["Lien copié"]);
+              }
+              else {
+                alert ("else");
+                this.iaSpeech(["Copie ce lien pour envoyer ton score à la terre entière : ", this.scoreLink]);
+              }
             
         }
     },
