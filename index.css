@@ -214,6 +214,10 @@ h2 {
     opacity: 0.2;
   }
 
+  .shared-icons img {
+    fill: white;
+  }
+
   .pulse {
     animation: radial-pulse 1s infinite;
   }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" />
+    <title>SharedScore</title>
+</head>
+<body>
+    <div>
+    <h1>Salut, j'ai fait <span id="score"></span> points à [nom du jeu].<br>
+    <h2>C'est un petit jeu sur la gestion écolo d'un food truck.</h2>
+    <div style="width: 50px; margin:auto; padding: 50px;">
+        <a id="game-link" class="button-text" style="text-decoration: none; color:white">
+            Jouer
+        </a>
+    </div>
+</div>  
+</body>
+<script>
+
+    function decryptScore (score) {
+        var request = new XMLHttpRequest();
+        request.open(
+            "GET",
+            "https://ycallier-api.herokuapp.com/decryptScore/" + score,
+            true
+        );
+        request.onload = function () {
+            document.getElementById("score").innerHTML = request.response;
+        };
+        request.send();
+    }
+
+    const cryptedScore = window.location.search.substr(1);
+    decryptScore(cryptedScore);
+
+    const gameLink = window.location.href.split('sharedScore')[0];
+    console.log(gameLink);
+    document.getElementById("game-link").href = gameLink;
+</script>
+</html>

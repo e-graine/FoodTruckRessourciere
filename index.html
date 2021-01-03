@@ -11,8 +11,8 @@
     <!-- <link rel="manifest" href="/manifest.json"> -->
     <link rel="manifest" href="/manifest.json">
     <!-- <script src="https://vuejs.org/js/vue.min.js"></script> -->
-    <script src="https://vuejs.org/js/vue.js"></script>
-    <!-- <script type="text/javascript" src="vue.js"></script> -->
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <script type="text/javascript" src="vue.js"></script>
     <title>enigme0</title>
 </head>
 
@@ -58,6 +58,13 @@
         <div class="screen endGame-container" v-if="currentScreen === 'endGame'">
             You end this game in {{ endTime }} <br>
             This worth {{ score }} points !
+            <div class="shared-score">
+                <!-- <span id="copytest">{{ scoreLink }}</span> -->
+                <u>Partager ce score</u>
+                <div class="shared-icons">
+                    <div v-on:click="shareLink()" class="button-text"><img src="img/link_white.svg"/><br>lien</div>
+                </div>
+            </div>
         </div>
         
         <div class="message-screen" v-if="iaSpeeking">

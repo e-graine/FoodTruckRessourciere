@@ -49,14 +49,14 @@ var app = new Vue({
         docs:[],
         docsCall:false,
         appSize:null,
+        scoreLink:"null",
     },
     mounted: function () {
         this.appSize = this.checkSize();
         for (enigme of this.enigmes){
             enigme.currentQuestion = 0;
         }
-        this.decryptScore('poi');
-
+        this.scoreLinkGen(89);
     },
     updated: function () {
         // console.log("yolo");
@@ -177,6 +177,7 @@ var app = new Vue({
             this.endTime = new Date(seconds * 1000).toISOString().substr(11, 8);
             this.score = Math.round(100 - ((1/data.timesUp)*100)*seconds);
             if (this.score <0) this.score = 0;
+            this.scoreLinkGen(this.score);
             this.currentScreen = "endGame";
             // this.encryptScore(this.score);
             // this.decryptScore('poi');
@@ -207,7 +208,7 @@ var app = new Vue({
             this.$refs.timer.stopTime = false;
         },
 
-        encryptScore(score) {
+        encryptScore:function (score, callback, optionalData) {
             var request = new XMLHttpRequest();
             request.open(
                 "GET",
@@ -215,12 +216,12 @@ var app = new Vue({
                 true
             );
             request.onload = function () {
-                console.log(request.response);
+                return callback (request.response, optionalData);
             };
             request.send();
         },
 
-        decryptScore(score) {
+        decryptScore:function (score) {
             var request = new XMLHttpRequest();
             request.open(
                 "GET",
@@ -231,6 +232,25 @@ var app = new Vue({
                 console.log(request.response);
             };
             request.send();
+        },
+
+        scoreLinkGen: function(score){
+            const url = window.location.href + "/sharedScore.html?";
+            const callback = function(crypteScore, url) {
+                app.scoreLink = url + crypteScore;
+                // console.log(this.scoreLink);
+            }
+            this.encryptScore(score, callback, url);
+        },
+
+        shareLink :function(){
+            // var test = document.querySelector('#copytest');
+            // test.setAttribute('type', 'text') ;
+            // console.log(test);
+            // test.select();
+            if (navigator.clipboard.writeText(this.scoreLink)) this.iaSpeech(["Lien copié"])
+            else this.iaSpeech(["Copie ce lien pour envoyer ton score à la terre entière : ", this.scoreLink])
+            
         }
     },
 });
