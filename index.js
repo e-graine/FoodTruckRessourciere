@@ -256,8 +256,7 @@ var app = new Vue({
             //   } catch (err) {
             //     this.iaSpeech(["Copie ce lien pour envoyer ton score à la terre entière : ", this.scoreLink]);
             //   }
-            alert ("salut");
-              if (navigator){
+              if (navigator && navigator.clipboard){
                   alert ("ça pass");
                 navigator.clipboard.writeText(this.scoreLink);
                 this.iaSpeech(["Lien copié"]);
