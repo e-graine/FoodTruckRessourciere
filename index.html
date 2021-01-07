@@ -41,6 +41,13 @@
             >
                 {{ enigme.title }} : fini !
             </div>
+            <!-- <div class="message-screen">
+                <div  class="message-box">
+                    <p>Lien à partager :</p>
+                    <input type="text" id='inputLink' value="bla"/>
+                    <div class="button-text" v-on:click="rawCopy">Copier</div>
+                </div>
+            </div> -->
         </div>
         <div class="screen enigme-container" v-if="currentScreen === 'enigme'">
             <div class="img-map">
@@ -58,13 +65,13 @@
         <div class="screen endGame-container" v-if="currentScreen === 'endGame'">
             You end this game in {{ endTime }} <br>
             This worth {{ score }} points !
-            <div class="shared-score">
-                <!-- <span id="copytest">{{ scoreLink }}</span> -->
+            <div v-on:click="shareLink()" class="button-text">Partager ce score</div>
+            <!-- <div class="shared-score">
                 <u>Partager ce score</u>
                 <div class="shared-icons">
                     <div v-on:click="shareLink()" class="button-text"><img src="img/link_white.svg"/><br>lien</div>
                 </div>
-            </div>
+            </div> -->
         </div>
         
         <div class="message-screen" v-if="iaSpeeking">
