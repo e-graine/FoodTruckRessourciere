@@ -1,143 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
     <link rel="stylesheet" href="index.css" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <!-- <link rel="manifest" href="/manifest.json"> -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/manifest.json" />
     <!-- <script src="https://vuejs.org/js/vue.min.js"></script> -->
     <script src="https://vuejs.org/js/vue.js"></script>
     <!-- <script type="text/javascript" src="vue.js"></script> -->
     <title>enigme0</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- <div id="app" class="app-container"> -->
     <div id="app" class="app-container" :style="appSize">
-        
-        <div class="screen intro-container" v-if="currentScreen === 'intro'">
-            <div class="img-map">
-                <img class="img100" :src="introImage"/>
-                <div class="click-zone button-text button-intro" v-on:click="letsPlay" onclick="fsRequest()" >Jouer</div>
-            </div>
+      <div class="screen intro-container" v-if="currentScreen === 'intro'">
+        <div class="img-map">
+          <img class="img100" :src="introImage" />
+          <div
+            class="click-zone button-text button-intro"
+            v-on:click="letsPlay"
+            onclick="fsRequest()"
+          >
+            Jouer
+          </div>
         </div>
-        <div class="screen board-container" v-if="currentScreen === 'board'">
-            <div 
-                v-for="(enigme) in enigmes" 
-                class="button-text" v-on:click="displayEnigme(enigme)"
-                v-if="enigme.questions[enigme.currentQuestion]"
-            >
-                {{ enigme.title }}
-            </div>
+      </div>
+      <div class="screen board-container" v-if="currentScreen === 'board'">
+        <div
+          v-for="(enigme) in enigmes"
+          class="button-text"
+          v-on:click="displayEnigme(enigme)"
+          v-if="enigme.questions[enigme.currentQuestion]"
+        >
+          {{ enigme.title }}
+        </div>
 
-            <div 
-                v-for="(enigme) in enigmes" 
-                v-if="!enigme.questions[enigme.currentQuestion]"
-            >
-                {{ enigme.title }} : fini !
-            </div>
-            <!-- <div class="message-screen">
+        <div
+          v-for="(enigme) in enigmes"
+          v-if="!enigme.questions[enigme.currentQuestion]"
+        >
+          {{ enigme.title }} : fini !
+        </div>
+        <!-- <div class="message-screen">
                 <div  class="message-box">
                     <p>Lien à partager :</p>
                     <input type="text" id='inputLink' value="bla"/>
                     <div class="button-text" v-on:click="rawCopy">Copier</div>
                 </div>
             </div> -->
-        </div>
-        <div class="screen enigme-container" v-if="currentScreen === 'enigme'">
-            <div class="img-map">
-                <img class="img100" :src="currentEnigme.image"/>
-                <div v-for="(zone, zoneName) in currentEnigme.zones" class="click-zone" :style="{
+      </div>
+      <div class="screen enigme-container" v-if="currentScreen === 'enigme'">
+        <div class="img-map">
+          <img class="img100" :src="currentEnigme.image" />
+          <div
+            v-for="(zone, zoneName) in currentEnigme.zones"
+            class="click-zone"
+            :style="{
                     height: zone.height,
                     width: zone.width,
                     top: zone.top,
                     left: zone.left,
                     border: zone.border,
                 }"
-                v-on:click="resolve(zoneName)"></div>
-            </div>
+            v-on:click="resolve(zoneName)"
+          ></div>
         </div>
-        <div class="screen endGame-container" v-if="currentScreen === 'endGame'">
-            You end this game in {{ endTime }} <br>
-            This worth {{ score }} points !
-            <div v-on:click="shareLink()" class="button-text">Partager ce score</div>
-            <!-- <div class="shared-score">
+      </div>
+      <div class="screen endGame-container" v-if="currentScreen === 'endGame'">
+        You end this game in {{ endTime }} <br />
+        This worth {{ score }} points !
+        <div v-if="scoreSaver" class="score-saver">
+          C'est un record !<br />
+          Inscrit ton nom dans les annales :
+          <input
+            type="text"
+            class="scorer-name"
+            id="scorerName"
+            v-model="userName"
+          />
+          <span class="next-arry" v-on:click="newHighScore(score,userName)"
+            >&#10140;</span
+          >
+        </div>
+        <div v-on:click="shareLink()" class="button-text">
+          Partager ce score
+        </div>
+        <!-- <div class="shared-score">
                 <u>Partager ce score</u>
                 <div class="shared-icons">
                     <div v-on:click="shareLink()" class="button-text"><img src="img/link_white.svg"/><br>lien</div>
                 </div>
             </div> -->
-        </div>
-        
-        <div class="message-screen" v-if="iaSpeeking">
-            <div  class="message-box">
-                {{ message }}
-                <div v-if="qcmMessage">
-                    <p> {{ qcmMessage.question }} </p>
-                    <div class="grid-2-column">
-                        <div v-for="proposition in qcmMessage.propositions" v-on:click="resolve(proposition)" class="button-text">{{ proposition }}
-                        </div>
-                    </div>
-                </div>
-                <div class="next-arry" v-if="waitingSpeech" v-on:click="nextMessage">&#10140;</div>
-                <div class="button-text" v-if="!qcmMessage" v-on:click="okMessage">OK</div>
-            </div>
-            <div class="white-triangle"><div class="green-triangle"></div></div>
-        </div>
-        <timer ref="timer" inline-template v-show="currentScreen === 'board' ">
-            <div class="timer" >
-                <div class="progress-bar">
-                    <div class="progress" :style="{ width: timeBarWidth }"></div>
-                </div>
-                <div class="progress-label">Time's up</div>
-            </div>
-        </timer>
-        <div class='button-doc' :class="{ 'pulse':docsCall }" v-on:click="docDisplay" v-if="currentScreen !== 'doc' && currentScreen != 'intro' && docs.length !== 0 ">D</div>
-        <div class="screen doc-container" v-if="currentScreen === 'doc'">
-            <div class='button-doc' v-on:click="docExit">X</div>
-            <div class="doc-content">
-                <h2>{{ docs[currentDoc].title }}</h2>
-                <div><img :src="docs[currentDoc].image" alt="" class="img100"></div>
-                <p>{{ docs[currentDoc].text }}</p>
-            </div>
-            <div class="doc-changer">
-                <div v-on:click="backDoc" :class="{ 'button-disabled':currentDoc === 0 }">&#8249;</div>
-                <div v-on:click="forwardDoc" :class="{ 'button-disabled':currentDoc == docs.length-1 }">&#8250;</div>
-            </div>
-        </div>
-    </div>
-</body>
-<script type="text/javascript" src="data.js"></script>
-<script type="text/javascript" src="doc.js"></script>
-<script type="text/javascript" src="index.js"></script>
-<script>
-    function fsRequest (){
-        // window.scrollTo(0,1);
+      </div>
 
-            // var appli = document.getElementById('app').requestFullscreen();
-            // if (appli.requestFullscreen) {
-            //     appli.requestFullscreen();
-            // } else if (appli.webkitRequestFullscreen) {
-            //     appli.webkitRequestFullscreen();
-            // } else if (appli.mozRequestFullScreen) {
-            //     appli.mozRequestFullScreen();
-            // } else if (appli.msRequestFullscreen) {
-            //     appli.msRequestFullscreen();
-            // }
+      <div class="message-screen" v-if="iaSpeeking">
+        <div class="message-box">
+          {{ message }}
+          <div v-if="qcmMessage">
+            <p>{{ qcmMessage.question }}</p>
+            <div class="grid-2-column">
+              <div
+                v-for="proposition in qcmMessage.propositions"
+                v-on:click="resolve(proposition)"
+                class="button-text"
+              >
+                {{ proposition }}
+              </div>
+            </div>
+          </div>
+          <div class="next-arry" v-if="waitingSpeech" v-on:click="nextMessage">
+            &#10140;
+          </div>
+          <div class="button-text" v-if="!qcmMessage" v-on:click="okMessage">
+            OK
+          </div>
+        </div>
+        <div class="white-triangle"><div class="green-triangle"></div></div>
+      </div>
+      <timer ref="timer" inline-template v-show="currentScreen === 'board' ">
+        <div class="timer">
+          <div class="progress-bar">
+            <div class="progress" :style="{ width: timeBarWidth }"></div>
+          </div>
+          <div class="progress-label">Time's up</div>
+        </div>
+      </timer>
+      <div
+        class="button-doc"
+        :class="{ 'pulse':docsCall }"
+        v-on:click="docDisplay"
+        v-if="currentScreen !== 'doc' && currentScreen != 'intro' && docs.length !== 0 "
+      >
+        D
+      </div>
+      <div class="screen doc-container" v-if="currentScreen === 'doc'">
+        <div class="button-doc" v-on:click="docExit">X</div>
+        <div class="doc-content">
+          <h2>{{ docs[currentDoc].title }}</h2>
+          <div><img :src="docs[currentDoc].image" alt="" class="img100" /></div>
+          <p>{{ docs[currentDoc].text }}</p>
+        </div>
+        <div class="doc-changer">
+          <div
+            v-on:click="backDoc"
+            :class="{ 'button-disabled':currentDoc === 0 }"
+          >
+            &#8249;
+          </div>
+          <div
+            v-on:click="forwardDoc"
+            :class="{ 'button-disabled':currentDoc == docs.length-1 }"
+          >
+            &#8250;
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="data.js"></script>
+  <script type="text/javascript" src="doc.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script>
+    function fsRequest() {
+      // window.scrollTo(0,1);
+      // var appli = document.getElementById('app').requestFullscreen();
+      // if (appli.requestFullscreen) {
+      //     appli.requestFullscreen();
+      // } else if (appli.webkitRequestFullscreen) {
+      //     appli.webkitRequestFullscreen();
+      // } else if (appli.mozRequestFullScreen) {
+      //     appli.mozRequestFullScreen();
+      // } else if (appli.msRequestFullscreen) {
+      //     appli.msRequestFullscreen();
+      // }
     }
     window.onbeforeunload = function (e) {
-    var e = e || window.event;
-    // For IE and Firefox
-    if (e) e.returnValue = "Any string";
-    // For Safari
-    return "Any string";
+      var e = e || window.event;
+      // For IE and Firefox
+      if (e) e.returnValue = "Any string";
+      // For Safari
+      return "Any string";
     };
-</script>
-
-
+  </script>
 </html>
