@@ -42,7 +42,6 @@ var app = new Vue({
     currentScreen: "intro",
     historic: ["intro"],
     introImage: data.introImage,
-    // backGroundImage: data.backGroundImage,
     enigmes: data.enigmes,
     currentEnigme: null,
     currentQuestion: 0,
@@ -114,8 +113,6 @@ var app = new Vue({
         "max-height": appHeight + "px",
         "max-width": appWidth + "px",
       };
-      document.getElementById("body").style.backgroundImage =
-        "url(img/fond_transparent.png)";
       return styleSize;
     },
 
@@ -204,6 +201,8 @@ var app = new Vue({
       this.scoreLinkGen(this.score);
       this.highScoreTest(this.score);
       this.currentScreen = "endGame";
+      // this.encryptScore(this.score);
+      // this.decryptScore('poi');
     },
 
     docDisplay: function () {

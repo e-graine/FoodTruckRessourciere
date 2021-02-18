@@ -9,8 +9,7 @@ body {
   width: 100vw;
   height: 100vh;
   color: #fff;
-  /* background-image: repeating-linear-gradient("img/fond_transparent.png"); */
-  /* background-image: url("img/fond_transparent.png"); */
+  background-color: #65ae42;
 }
 
 h2 {

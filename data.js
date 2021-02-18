@@ -9,7 +9,7 @@ data = {
       title: "Réduire ses déchets",
       welcomeMessage: "TEXTE D'INTRO MISSION",
       doc: "doc3",
-      image: "test_poubelle.png",
+      image: "img/test_poubelle.png",
       zones: {
         emballage: {
           top: "35%",
@@ -205,7 +205,7 @@ data = {
         {
           questionImage:
             "Retrouve un élément qui permet de conserver le pain plus longtemps",
-          answerImage: "torchon",
+          answerImage: "img/torchon",
           qcm: {
             question:
               "Quelle quantité de pain est gaspillée à la maison pour une personne ?",
