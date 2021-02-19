@@ -1,5 +1,5 @@
 data = {
-  backGroundImage: "Fond transparent-2.png",
+  backGroundImage: "fond.png",
   introImage: "test_accueil.png",
   timesUp: 10 * 60,
   timesMalus: 60,
