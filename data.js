@@ -1,6 +1,6 @@
 data = {
   backGroundImage: "test_accueil.png",
-  introImage: "img/truck.svg",
+  introImage: "test_accueil.png",
   timesUp: 10 * 60,
   timesMalus: 60,
   landscapeMessage: "Veuillez passer en mode paysage pour jouer",
