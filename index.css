@@ -189,7 +189,13 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* justify-content: center; */
   padding: 10px;
+}
+
+.doc-content > * {
+  display: inline-block;
+  /* color: red; */
 }
 
 /* .doc-content p{

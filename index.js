@@ -49,6 +49,7 @@ var app = new Vue({
     endTime: 0,
     score: 0,
     currentDoc: 0,
+    HTMLDocs: [],
     docs: [],
     docsCall: false,
     appSize: null,
@@ -56,6 +57,12 @@ var app = new Vue({
     scoreSaver: false,
   },
   mounted: function () {
+    if (!this.HTMLDocs.length) {
+      for (item in doc) {
+        this.HTMLDocs.push(this.creatHTMLDOC(doc[item], item));
+      }
+    }
+
     this.appSize = this.checkSize();
     for (enigme of this.enigmes) {
       enigme.currentQuestion = 0;
@@ -82,6 +89,36 @@ var app = new Vue({
   },
 
   methods: {
+    creatHTMLDOC: function (jsDoc, docName) {
+      const container = document.createElement("div");
+      container.id = docName;
+
+      for (item of jsDoc) {
+        let htmlElement = document.createElement("div");
+        let content = document.createTextNode(item.content);
+        switch (item.type) {
+          case "title":
+            htmlElement = document.createElement("h2");
+            break;
+          case "subTitle":
+            htmlElement = document.createElement("h4");
+            break;
+          case "paragraphe":
+            htmlElement = document.createElement("p");
+            break;
+          case "image":
+            htmlElement = document.createElement("img");
+            htmlElement.setAttribute("src", item.content);
+            content = null;
+            break;
+        }
+        if (content) htmlElement.appendChild(content);
+        container.appendChild(htmlElement);
+      }
+
+      return container;
+    },
+
     iaSpeech: function (speech) {
       this.message = speech.shift();
       this.waitingSpeech = speech.length > 0 ? speech : null;
@@ -137,7 +174,9 @@ var app = new Vue({
         enigme.questions[enigme.currentQuestion].questionImage,
       ]);
       this.currentScreen = "enigme";
-      if (enigme.doc) this.docs.push(doc[enigme.doc]);
+      const enigmeDoc = this.HTMLDocs.find((item) => item.id === enigme.doc);
+
+      if (enigmeDoc) this.docs.push(enigmeDoc);
     },
 
     // nextStep : function () {
@@ -214,14 +253,23 @@ var app = new Vue({
       this.currentDoc = 0;
       // this.doc= doc[this.currentDoc];
       this.currentScreen = "doc";
+      this.docInsert();
+    },
+
+    docInsert: function () {
+      document
+        .getElementById("docContent")
+        .appendChild(this.docs[this.currentDoc]);
     },
 
     forwardDoc: function () {
       this.currentDoc++;
+      this.docInsert();
     },
 
     backDoc: function () {
       this.currentDoc--;
+      this.docInsert();
     },
 
     docExit: function () {

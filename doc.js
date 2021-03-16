@@ -1,15 +1,62 @@
 doc = {
-    doc1 : {
-        title:"Ceci est un titre",
-        image: "img/image.jpg",
-        text:"test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test"
+  doc1: [
+    {
+      type: "title",
+      content: "Ceci est un titre doc1",
     },
-    doc2 : {
-        title:"Doc sans image",
-        text:"test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test"
+    {
+      type: "subTitle",
+      content: "Ceci est un sous-titre",
     },
-    doc3 : {
-        title:"Doc sans image",
-        text:"test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test"
-    }
-}
+    {
+      type: "title",
+      content: "Ceci est un autre titre",
+    },
+    {
+      type: "image",
+      content: "img/image.jpg",
+    },
+  ],
+  doc2: [
+    {
+      type: "title",
+      content: "Ceci est un titre doc2",
+    },
+    {
+      type: "subTitle",
+      content: "Ceci est un sous-titre",
+    },
+    {
+      type: "title",
+      content: "Ceci est un autre titre",
+    },
+    {
+      type: "image",
+      content: "img/image.jpg",
+    },
+    {
+      type: "paragraph",
+      content:
+        "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test",
+    },
+  ],
+
+  doc3: [
+    {
+      type: "title",
+      content: "Ceci est un titre doc3",
+    },
+    {
+      type: "subTitle",
+      content: "Ceci est un sous-titre",
+    },
+    {
+      type: "title",
+      content: "Ceci est un autre titre",
+    },
+    {
+      type: "image",
+      content: "img/image.jpg",
+    },
+  ],
+};

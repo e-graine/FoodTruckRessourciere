@@ -141,12 +141,12 @@
       >
         D
       </div>
-      <div class="screen doc-container" v-if="currentScreen === 'doc'">
+      <div class="screen doc-container" v-show="currentScreen === 'doc'">
         <div class="button-doc" v-on:click="docExit">X</div>
-        <div class="doc-content">
-          <h2>{{ docs[currentDoc].title }}</h2>
+        <div class="doc-content" id="docContent">
+          <!-- <h2>{{ docs[currentDoc].title }}</h2>
           <div><img :src="docs[currentDoc].image" alt="" class="img100" /></div>
-          <p>{{ docs[currentDoc].text }}</p>
+          <p>{{ docs[currentDoc].text }}</p> -->
         </div>
         <div class="doc-changer">
           <div

@@ -1,6 +1,6 @@
 data = {
-  backGroundImage: "fond.png",
-  introImage: "test_accueil.png",
+  backGroundImage: "img/fond.png",
+  introImage: "img/test_accueil.png",
   timesUp: 10 * 60,
   timesMalus: 60,
   landscapeMessage: "Veuillez passer en mode paysage pour jouer",
@@ -130,7 +130,7 @@ data = {
       title: "Acheter responsable",
       welcomeMessage: "Votre frigo contient des anomalies.",
       doc: "doc2",
-      image: "test_frigo.png",
+      image: "img/test_frigo.png",
       zones: {
         plat: {
           top: "35%",
@@ -187,31 +187,28 @@ data = {
           },
         },
         {
-          questionImage:
-            "Trouve un aliment qui peut encore être consommé",
+          questionImage: "Trouve un aliment qui peut encore être consommé",
           answerImage: "banane",
           qcm: {
-            question:
-              "Avec une conserve de pois chiche, je peux faire :",
-            propositions: ["Une mousse au chocolat", "Une meringue", "De la mayonnaise", "Une pâte à tarte"],
+            question: "Avec une conserve de pois chiche, je peux faire :",
+            propositions: [
+              "Une mousse au chocolat",
+              "Une meringue",
+              "De la mayonnaise",
+              "Une pâte à tarte",
+            ],
             answer: "Une mousse au chocolat, Une meringue, De la mayonnaise",
             correction:
               "L'eau des conserves de pois chiche, aussi appelée aquafaba peut remplacer les blancs d'oeufs dans vos préparations.",
           },
         },
         {
-          questionImage:
-            "Trouve un aliment qui doit être consommé autrement.",
+          questionImage: "Trouve un aliment qui doit être consommé autrement.",
           answerImage: "oignon",
           qcm: {
             question:
               "Quelle part de la production alimentaire mondiale est gaspillée ?",
-            propositions: [
-              "15%",
-              "40%",
-              "50%",
-              "70%",
-            ],
+            propositions: ["15%", "40%", "50%", "70%"],
             answer: "40%",
             correction:
               "40% de la production alimentaire mondiale est gaspillée. Le gaspillage survient à toutes les étapes de la production : lors de la culture, le stockage, la distribution et à la maison.",
@@ -224,10 +221,7 @@ data = {
           qcm: {
             question:
               "Qu'est-ce qui génère le plus d'émission carbone dans le monde ?",
-            propositions: [
-              "Le trafic aérien",
-              "La production alimentaire",
-            ],
+            propositions: ["Le trafic aérien", "La production alimentaire"],
             answer: "La production alimentaire",
             correction:
               "La production alimentaire génère 3 fois plus d'émission de carbone que le trafic aérien.",
@@ -240,12 +234,7 @@ data = {
           qcm: {
             question:
               "Lorsque j'achète un litre de lait à 1€, quelle est la part qui revient au producteur ?",
-            propositions: [
-              "0,27€",
-              "0,32€",
-              "0,52€",
-              "0,74€",
-            ],
+            propositions: ["0,27€", "0,32€", "0,52€", "0,74€"],
             answer: "0,27€",
             correction:
               "En moyenne, lorsque l'on achète 1 litre de lait à 1€, seulement 0,27€ revient au producteur.",
