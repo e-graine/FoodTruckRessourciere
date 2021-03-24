@@ -108,7 +108,7 @@ doc = {
     },
     {
       type: "image",
-      content: "img/lombricomposteur.png",
+      content: "img/lombricomposteur.jpg",
     },
   ],
 };
