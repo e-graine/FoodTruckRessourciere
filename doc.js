@@ -53,7 +53,7 @@ doc = {
     {
       type: "paragraph",
       content:
-        "Les objets dont vous n’avez pas besoin ou ceux à usage unique. Pour cela il faut prévoir des objets réutilisables (gourde, beewrap, sac en tissus..).",
+        "Le meilleur déchet c’est celui que l’on ne produit pas. Au quotidien vous pouvez refuser les déchets à usage unique. Pour cela il faut prévoir des contenants réutilisables, qui prennent peu de place : beewrap, gourde, sac en tissus… Vous pouvez aussi faire vos courses en en vrac.",
     },
     {
       type: "subTitle",
@@ -62,7 +62,7 @@ doc = {
     {
       type: "paragraph",
       content:
-        "Sa consommation en repensant ses besoins. Des produits de bases très économiques permettent répondre à de nombreuses utilités et d’éviter l’achat de produits transformés sur-emballés. ",
+        "Les produits d’entretien du commerce, en plus de générer des déchets, sont souvent onéreux et contiennent des produits nocifs pour l’environnement et notre santé. Réduire ses déchets c’est aussi repenser ses besoins. Avec quelques produits simple et économique vous pouvez nettoyer toute votre maison : bicarbonate de soude, vinaigre, savon noir. Vous pouvez aussi faire vos propres recettes à partir de ces quelques produits de base.",
     },{
       type: "subTitle",
       content: "3. Réutiliser",
@@ -70,7 +70,7 @@ doc = {
     {
       type: "paragraph",
       content:
-        "Avant d’être un déchet, un objet peut trouver une nouvelle utilité. Vous pouvez l’utiliser en l’état ou en faire autre chose.",
+        "Avant d’être un déchet, un objet peut trouver une nouvelle utilité. On peut l’utiliser en l’état pour autre chose, par exemple utiliser ses contenants en verre pour faire ses achats en vrac. On peut aussi fabriquer un nouvel objet pour remplir une autre fonction, par exemple utiliser ses chaussettes usagées pour fabriquer des éponges tawashi.",
     },{
       type: "subTitle",
       content: "4. Recycler",
@@ -78,7 +78,7 @@ doc = {
     {
       type: "paragraph",
       content:
-        "Le tri n’est pas encore optimisé. Pour trier correctement, renseignez-vous auprès de votre collectivité.",
+        "Les consignes de tri sont différentes en fonction de votre lieu d’habitation, chaque collectivité recycle différemment en fonction des machines dont elle dispose. Renseignez-vous auprès de votre mairie ou sur des sites internet.",
     },{
       type: "subTitle",
       content: "5. Rendre à la terre",
@@ -86,7 +86,7 @@ doc = {
     {
       type: "paragraph",
       content:
-        "Le compostage permet de valoriser 27% de nos déchets ménagers en engrais. Un compost bien géré reste sain et sans odeurs !",
+        "En présence d’oxygène et d’eau, les matières organiques sont transformées par des micro-organismes et des organismes de plus grande taille. Au terme du processus, on obtient ce que l’on appelle un compost mûr. Un produit idéal pour votre potager, vos fleurs, vos plantes en pot, les espaces verts, des jardins partagés… Un compost bien géré reste sain et sans odeurs !",
     },
     {
       type: "title",
@@ -108,7 +108,7 @@ doc = {
     },
     {
       type: "image",
-      content: "img/lombricomposteur.jpg",
+      content: "img/lombricomposteur.png",
     },
   ],
 };
