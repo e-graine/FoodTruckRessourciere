@@ -2,42 +2,109 @@ doc = {
   doc1: [
     {
       type: "title",
-      content: "Ceci est un titre doc1",
+      content: "Passer au zéro déchet, la méthode des 5 R",
     },
     {
       type: "subTitle",
-      content: "Ceci est un sous-titre",
+      content: "Sous-titre",
+    },
+    {
+      type: "paragraph",
+      content:
+        "Explications.",
+    },
+    {
+      type: "subTitle",
+      content: "Sous-titre",
+    },
+    {
+      type: "paragraph",
+      content:
+        "Explications.",
+    },{
+      type: "subTitle",
+      content: "Sous-titre",
+    },
+    {
+      type: "paragraph",
+      content:
+        "Explications.",
     },
     {
       type: "title",
-      content: "Ceci est un autre titre",
+      content: "Titre du tuto",
+    },
+    {
+      type: "paragraph",
+      content:
+        "Pourquoi faire ce tuto",
+    },
+    {
+      type: "paragraph",
+      content:
+        "Comment faire ce tuto (introduction)",
+    },{
+      type: "paragraph",
+      content:
+        "Vous trouverez le tutoriel complet sur le site de la Ressourcière, à la suite du jeu.",
     },
     {
       type: "image",
-      content: "img/image.jpg",
+      content: "img/imagetest.png",
     },
   ],
   doc2: [
     {
       type: "title",
-      content: "Ceci est un titre doc2",
+      content: "Passer au zéro déchet, la méthode des 5 R",
     },
     {
       type: "subTitle",
-      content: "Ceci est un sous-titre",
-    },
-    {
-      type: "title",
-      content: "Ceci est un autre titre",
-    },
-    {
-      type: "image",
-      content: "img/image.jpg",
+      content: "Sous-titre",
     },
     {
       type: "paragraph",
       content:
-        "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test",
+        "Explications.",
+    },
+    {
+      type: "subTitle",
+      content: "Sous-titre",
+    },
+    {
+      type: "paragraph",
+      content:
+        "Explications.",
+    },{
+      type: "subTitle",
+      content: "Sous-titre",
+    },
+    {
+      type: "paragraph",
+      content:
+        "Explications.",
+    },
+    {
+      type: "title",
+      content: "Titre du tuto",
+    },
+    {
+      type: "paragraph",
+      content:
+        "Pourquoi faire ce tuto",
+    },
+    {
+      type: "paragraph",
+      content:
+        "Comment faire ce tuto (introduction)",
+    },{
+      type: "paragraph",
+      content:
+        "Vous trouverez le tutoriel complet sur le site de la Ressourcière, à la suite du jeu.",
+    },
+    {
+      type: "image",
+      content: "img/imagetest.png",
     },
   ],
 
