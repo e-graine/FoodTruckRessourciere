@@ -1,6 +1,6 @@
 data = {
   backGroundImage: "img/fondparechemin.png",
-  introImage: "img/test_accueil.png",
+  introImage: "img/ECOLOC_Couverture.png",
   timesUp: 10 * 60,
   timesMalus: 60,
   landscapeMessage: "Veuillez passer en mode paysage pour jouer",
