@@ -50,7 +50,7 @@ doc = {
     },
     {
       type: "image",
-      content: "img/imagetest.png",
+      content: "img/imagetest.jpg",
     },
   ],
   doc2: [
@@ -104,7 +104,7 @@ doc = {
     },
     {
       type: "image",
-      content: "img/imagetest.png",
+      content: "img/imagetest.jpg",
     },
   ],
 
