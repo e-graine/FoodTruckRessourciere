@@ -1,7 +1,7 @@
 data = {
   backGroundImage: "img/fondparechemin.png",
   introImage: "img/ECOLOC_Couverture.png",
-  timesUp: 10 * 60,
+  timesUp: 20 * 60,
   timesMalus: 60,
   landscapeMessage: "Veuillez passer en mode paysage pour jouer",
   enigmes: [
@@ -9,9 +9,9 @@ data = {
       title: "Jardiner au naturel",
       welcomeMessage: "TEXTE D'INTRO MISSION",
       doc: "doc3",
-      image: "img/test_poubelle.png",
+      image: "img/ECOLOC_test.png",
       zones: {
-        emballage: {
+        zone1: {
           top: "35%",
           left: "70%",
           width: "15%",
@@ -19,7 +19,7 @@ data = {
           border: "1px solid black",
           wrongText: "humm.. non ça c'est une banane",
         },
-        produit: {
+        zone2: {
           top: "10%",
           left: "60%",
           width: "12%",
@@ -27,7 +27,7 @@ data = {
           border: "1px solid black",
           wrongText: "Non le torchon ça marche pas",
         },
-        bocal: {
+        zone3: {
           top: "60%",
           left: "50%",
           width: "20%",
@@ -35,7 +35,7 @@ data = {
           border: "1px solid black",
           wrongText: "Non la liste de courses ça marche pas",
         },
-        bouteille: {
+        zone4: {
           top: "10%",
           left: "30%",
           width: "20%",
@@ -43,7 +43,7 @@ data = {
           border: "1px solid black",
           wrongText: "Non le yaourt ça marche pas",
         },
-        pomme: {
+        zone5: {
           top: "15%",
           left: "5%",
           width: "20%",
@@ -55,76 +55,67 @@ data = {
       questions: [
         {
           questionImage:
-            "Trouve un déchet que tu peux refuser lors de ton achat.",
-          answerImage: "emballage",
+            "TROUVE N°1",
+          answerImage: "zone1",
           qcm: {
             question:
-              "Quelle quantité de déchet est produite en moyenne par un français chaque année ?",
-            propositions: ["278 Kg", "344 Kg", "568 Kg", "690 Kg"],
-            answer: "568 Kg",
+              "QCM",
+            propositions: ["JUSTE", "FAUX", "FAUX", "FAUX"],
+            answer: "JUSTE",
             correction:
-              "Un français produit chaque année 573 kg de déchets.",
+              "CORRECTIONS ET INFOS",
           },
         },
         {
           questionImage:
-            "Trouve un déchet que tu peux réduire en le fabriquant par toi-même.",
-          answerImage: "produit",
+            "TROUVE N°2",
+          answerImage: "zone2",
           qcm: {
-            question: "Avec du vinaigre je peux :",
-            propositions: [
-              "Fabriquer un produit multi-usage",
-              "Faire la vaisselle",
-              "Assouplir le linge",
-              "Nettoyer le sol",
-            ],
-            answer: [
-              "Fabriquer un produit multi-usage",
-              "Assouplir le linge",
-            ],
+            question:
+              "QCM",
+            propositions: ["JUSTE", "FAUX", "FAUX", "FAUX"],
+            answer: "JUSTE",
             correction:
-              "Le vinaigre d’alcool limite la diffusion des bactéries, lutte contre le calcaire et les moisissures, assouplit le linge, fait briller la vaisselle et les vitres. On le trouve à partir de 0,30€/litre dans le commerce !",
+              "CORRECTIONS ET INFOS",
           },
         },
         {
-          questionImage: "Trouve un déchet que tu peux réutiliser",
-          answerImage: "bocal",
+          questionImage:
+            "TROUVE N°3",
+          answerImage: "zone3",
           qcm: {
             question:
-              "Quel est le principal moyen de traitement des déchets en France ?",
-            propositions: ["L'incinération", "Le recyclage", "L'enffouisement"],
-            answer: "L'incinération",
+              "QCM",
+            propositions: ["JUSTE", "FAUX", "FAUX", "FAUX"],
+            answer: "JUSTE",
             correction:
-              "Le principal moyen de traitement des déchets en France est l’enfouissement. Elle représente XX% du traitement des déchets, suivi par l’incinération. L’enfouissement des déchets produit du NOM DES GAZS TOXIQUES.",
+              "CORRECTIONS ET INFOS",
           },
         },
         {
-          questionImage: "Trouve un objet qui peut être recyclé.",
-          answerImage: "bouteille",
+          questionImage:
+            "TROUVE N°4",
+          answerImage: "zone4",
           qcm: {
             question:
-              "Quelle proportion de nos déchets ménagers sont recyclables ?",
-            propositions: [
-              "10%",
-              "25%",
-              "40%",
-              "45%",
-            ],
-            answer: "40%",
+              "QCM",
+            propositions: ["JUSTE", "FAUX", "FAUX", "FAUX"],
+            answer: "JUSTE",
             correction:
-              "40 % de nos déchets sont recyclables. 35% de nos déchets sont des papiers et emballages, et 5% bénéficient de filières dédiées.",
+              "CORRECTIONS ET INFOS",
           },
         },
         {
-          questionImage: "Trouve un objet qui peut être composté.",
-          answerImage: "pomme",
+          questionImage:
+            "TROUVE N°5",
+          answerImage: "zone5",
           qcm: {
             question:
-              "Quelle proportion de nos déchets ménagers sont compostables ?",
-            propositions: ["5%", "10%", "15%", "27%"],
-            answer: "27%",
+              "QCM",
+            propositions: ["JUSTE", "FAUX", "FAUX", "FAUX"],
+            answer: "JUSTE",
             correction:
-              "Le compostage permet de valoriser 27% de nos déchets ménagers en engrais. Un compost bien géré reste sain et sans odeurs !",
+              "CORRECTIONS ET INFOS",
           },
         },
       ],
