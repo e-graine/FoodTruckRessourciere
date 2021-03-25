@@ -8,7 +8,7 @@ data = {
     {
       title: "Jardiner au naturel",
       welcomeMessage: "TEXTE D'INTRO MISSION",
-      doc: "doc3",
+      doc: "doc1",
       image: "img/ECOLOC_test.png",
       zones: {
         zone1: {
