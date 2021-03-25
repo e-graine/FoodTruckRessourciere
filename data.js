@@ -334,10 +334,10 @@ data = {
           qcm: {
             question:
               "Quel est le principal moyen de traitement des déchets en France ?",
-            propositions: ["L'incinération", "Le recyclage", "L'enffouisement"],
-            answer: "L'incinération",
+            propositions: ["L'incinération", "Le recyclage", "L'enffouisement", "Le compostage"],
+            answer: "L'enfouissement",
             correction:
-              "Avant d’être un déchet, un objet peut trouver une nouvelle utilité. Vous pouvez l’utiliser en l’état ou en faire autre chose.",
+              "Le principal moyen de traitement des déchets en France est l’enfouissement. Elle représente XX% du traitement des déchets, suivi par l’incinération. L’enfouissement des déchets produit du NOM DES GAZS TOXIQUES.",
           },
         },
         {
@@ -345,16 +345,16 @@ data = {
           answerImage: "bouteille",
           qcm: {
             question:
-              "Quelle est la proportion de nos déchets qui sont recyclés aujourd’hui ? ",
+              "Quelle proportion de nos déchets ménagers sont recyclables ?",
             propositions: [
-              "Fabriquer un produit multi-usage",
-              "Faire la vaisselle",
-              "Assouplir le linge",
-              "Nettoyer le sol",
+              "10%",
+              "25%",
+              "40%",
+              "45%",
             ],
-            answer: "Fabriquer un produit multi-usage, Assouplir le linge",
+            answer: "40%",
             correction:
-              "Le tri n’est pas encore optimisé. Pour trier correctement, renseignez-vous auprès de votre collectivité.",
+              "40 % de nos déchets sont recyclables. 35% de nos déchets sont des papiers et emballages, et 5% bénéficient de filières dédiées.",
           },
         },
         {
