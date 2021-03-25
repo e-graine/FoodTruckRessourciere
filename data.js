@@ -303,7 +303,7 @@ data = {
             propositions: ["278 Kg", "344 Kg", "568 Kg", "690 Kg"],
             answer: "568 Kg",
             correction:
-              "Un français produit chaque année 573 kg de déchets. Les objets dont vous n’avez pas besoin ou ceux à usage unique. Pour cela il faut prévoir des objets réutilisables (gourde, beewrap, sac en tissus..).",
+              "Un français produit chaque année 573 kg de déchets.",
           },
         },
         {
@@ -311,16 +311,21 @@ data = {
             "Trouve un déchet que tu peux réduire en le fabriquant par toi-même.",
           answerImage: "produit",
           qcm: {
-            question: "Avec du vinaigre je peux :",
+            question: "Avec du vinaigre blanc je peux :",
             propositions: [
-              "Fabriquer un produit multi-usage",
-              "Faire la vaisselle",
+              "Limiter la diffusion de bactéries",
+              "Lutter contre le calcaire",
               "Assouplir le linge",
-              "Nettoyer le sol",
+              "Faire briller les vitres",
             ],
-            answer: "Fabriquer un produit multi-usage, Assouplir le linge",
+            answer:  [
+              "Limiter la diffusion de bactéries",
+              "Lutter contre le calcaire",
+              "Assouplir le linge",
+              "Faire briller les vitres",
+            ],
             correction:
-              "Le vinaigre est un produit de base très économique qui remplis de multiples usages. Sa consommation en repensant ses besoins. Des produits de bases très économiques permettent répondre à de nombreuses utilités et d’éviter l’achat de produits transformés sur-emballés. ",
+              "Le vinaigre d’alcool limite la diffusion des bactéries, lutte contre le calcaire et les moisissures, assouplit le linge, fait briller la vaisselle et les vitres. On le trouve à partir de 0,30€/litre dans le commerce !",
           },
         },
         {
