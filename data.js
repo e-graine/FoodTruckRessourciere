@@ -320,9 +320,6 @@ data = {
             ],
             answer:  [
               "Limiter la diffusion de bactéries",
-              "Lutter contre le calcaire",
-              "Assouplir le linge",
-              "Faire briller les vitres",
             ],
             correction:
               "Le vinaigre d’alcool limite la diffusion des bactéries, lutte contre le calcaire et les moisissures, assouplit le linge, fait briller la vaisselle et les vitres. On le trouve à partir de 0,30€/litre dans le commerce !",
