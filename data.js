@@ -63,7 +63,7 @@ data = {
             propositions: ["278 Kg", "344 Kg", "568 Kg", "690 Kg"],
             answer: "568 Kg",
             correction:
-              "Un français produit chaque année 573 kg de déchets. Les objets dont vous n’avez pas besoin ou ceux à usage unique. Pour cela il faut prévoir des objets réutilisables (gourde, beewrap, sac en tissus..).",
+              "Un français produit chaque année 573 kg de déchets.",
           },
         },
         {
@@ -78,9 +78,12 @@ data = {
               "Assouplir le linge",
               "Nettoyer le sol",
             ],
-            answer: "Fabriquer un produit multi-usage, Assouplir le linge",
+            answer: [
+              "Fabriquer un produit multi-usage",
+              "Assouplir le linge",
+            ],
             correction:
-              "Le vinaigre est un produit de base très économique qui remplis de multiples usages. Sa consommation en repensant ses besoins. Des produits de bases très économiques permettent répondre à de nombreuses utilités et d’éviter l’achat de produits transformés sur-emballés. ",
+              "Le vinaigre d’alcool limite la diffusion des bactéries, lutte contre le calcaire et les moisissures, assouplit le linge, fait briller la vaisselle et les vitres. On le trouve à partir de 0,30€/litre dans le commerce !",
           },
         },
         {
@@ -92,7 +95,7 @@ data = {
             propositions: ["L'incinération", "Le recyclage", "L'enffouisement"],
             answer: "L'incinération",
             correction:
-              "Avant d’être un déchet, un objet peut trouver une nouvelle utilité. Vous pouvez l’utiliser en l’état ou en faire autre chose.",
+              "Le principal moyen de traitement des déchets en France est l’enfouissement. Elle représente XX% du traitement des déchets, suivi par l’incinération. L’enfouissement des déchets produit du NOM DES GAZS TOXIQUES.",
           },
         },
         {
@@ -100,16 +103,16 @@ data = {
           answerImage: "bouteille",
           qcm: {
             question:
-              "Quelle est la proportion de nos déchets qui sont recyclés aujourd’hui ? ",
+              "Quelle proportion de nos déchets ménagers sont recyclables ?",
             propositions: [
-              "Fabriquer un produit multi-usage",
-              "Faire la vaisselle",
-              "Assouplir le linge",
-              "Nettoyer le sol",
+              "10%",
+              "25%",
+              "40%",
+              "45%",
             ],
-            answer: "Fabriquer un produit multi-usage, Assouplir le linge",
+            answer: "40%",
             correction:
-              "Le tri n’est pas encore optimisé. Pour trier correctement, renseignez-vous auprès de votre collectivité.",
+              "40 % de nos déchets sont recyclables. 35% de nos déchets sont des papiers et emballages, et 5% bénéficient de filières dédiées.",
           },
         },
         {
