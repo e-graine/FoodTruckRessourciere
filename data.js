@@ -321,7 +321,7 @@ data = {
             question:
               "Quel est le principal moyen de traitement des déchets en France ?",
             propositions: ["L'incinération", "Le recyclage", "L'enffouisement", "Le compostage"],
-            answer: "L'enfouissement",
+            answer: "L'enffouisement",
             correction:
               "Le principal moyen de traitement des déchets en France est l’enfouissement. Elle représente XX% du traitement des déchets, suivi par l’incinération. L’enfouissement des déchets produit du NOM DES GAZS TOXIQUES.",
           },
