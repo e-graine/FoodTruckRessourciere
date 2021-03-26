@@ -122,7 +122,7 @@ data = {
     },
     {
       title: "Acheter responsable",
-      welcomeMessage: "Votre frigo contient des anomalies.",
+      welcomeMessage: "MESSAGE D'INTRODUCTION",
       doc: "doc2",
       image: "img/test_frigo.png",
       zones: {
@@ -184,14 +184,14 @@ data = {
           questionImage: "Trouve un aliment qui peut encore être consommé",
           answerImage: "banane",
           qcm: {
-            question: "Avec une conserve de pois chiche, je peux faire :",
+            question: "Avec une conserve de pois chiche, je ne peux pas faire :",
             propositions: [
               "Une mousse au chocolat",
               "Une meringue",
               "De la mayonnaise",
               "Une pâte à tarte",
             ],
-            answer: "Une mousse au chocolat, Une meringue, De la mayonnaise",
+            answer: "Une pâte à tarte",
             correction:
               "L'eau des conserves de pois chiche, aussi appelée aquafaba peut remplacer les blancs d'oeufs dans vos préparations.",
           },
@@ -302,16 +302,14 @@ data = {
             "Trouve un déchet que tu peux réduire en le fabriquant par toi-même.",
           answerImage: "produit",
           qcm: {
-            question: "Avec du vinaigre blanc je peux :",
+            question: "Avec du vinaigre blanc je ne peux pas :",
             propositions: [
               "Limiter la diffusion de bactéries",
               "Lutter contre le calcaire",
               "Assouplir le linge",
-              "Faire briller les vitres",
+              "FAUX",
             ],
-            answer:  [
-              "Limiter la diffusion de bactéries",
-            ],
+            answer:"FAUX",
             correction:
               "Le vinaigre d’alcool limite la diffusion des bactéries, lutte contre le calcaire et les moisissures, assouplit le linge, fait briller la vaisselle et les vitres. On le trouve à partir de 0,30€/litre dans le commerce !",
           },
