@@ -60,8 +60,8 @@ data = {
           qcm: {
             question:
               "QCM",
-            propositions: ["JUSTE", "FAUX", "FAUX", "FAUX"],
-            answer: "JUSTE",
+            propositions: ["Courgette", "FAUX", "FAUX", "FAUX"],
+            answer: "Courgette",
             correction:
               "CORRECTIONS ET INFOS",
           },
