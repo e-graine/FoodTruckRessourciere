@@ -42,6 +42,7 @@ var app = new Vue({
     currentScreen: "intro",
     historic: ["intro"],
     introImage: data.introImage,
+    backGroundImage: data.backGroundImage,
     enigmes: data.enigmes,
     currentEnigme: null,
     currentQuestion: 0,
@@ -69,7 +70,7 @@ var app = new Vue({
     }
   },
   updated: function () {
-    console.log("yolo");
+    // console.log("yolo");
     // this.$emit('myEvent')
     // timer.options.methods.timeForward();
   },
@@ -150,6 +151,8 @@ var app = new Vue({
         "max-height": appHeight + "px",
         "max-width": appWidth + "px",
       };
+      document.getElementById("body").style.backgroundImage =
+        "url(" + this.backGroundImage + ")";
       return styleSize;
     },
 
